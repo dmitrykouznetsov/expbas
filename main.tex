@@ -7,7 +7,15 @@
 \documentclass{article}
 \input{setup.tex} % Include the file specifying the document structure and custom commands
 
-\title{Foto-elektrisch effect} % Title of the assignment
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = false,
+	pdfborder = {0 0 0 [3 3]}
+}
+
+\usepackage[dutch]{babel}
+
+\title{Zonnecellen} % Title of the assignment
 % \author{Yukiko Amagi\\ \texttt{y.amagi@inabauniversity.jp}} % Author name and email address
 \date{Practicum natuurkunde, KU Leuven} % University, school and/or department name(s) and a date
 
@@ -15,111 +23,106 @@
 \maketitle
 
 \section*{Inleiding}
-
-Bij het foto-elektrisch effect wordt gemeten hoeveel elektronen er vrij komen en hoe snel deze zich verplaatsen wanneer een metaal wordt beschenen met licht.
-In 1905 publiceerde Einstein een Nobelprijs winnende paper waarin hij aantoonde dat de energie van de ontsnapte elektronen enkel afhangt van de frequentie van het licht en niet van de intensiteit van het licht.
-Het foto-elektrisch effect is essentieel voor de werking van een fotocel dat in dit practicum zal gebruikt worden om de waarde van de constante van Planck te bepalen.
-Voor een precieze bepaling van de constante van Planck zijn X-ray experimenten meer geschikt, maar het foto-elektrisch effect experiment is van groot historisch belang.
+Zonnecellen zetten stralingsenergie van de zon om in elektrische energie.
+In eerste instantie werden ze alleen gebruikt op plaatsen waar geen andere elektriciteitsvoorziening is, zoals bij lichtboeien op zee en bij satellieten die rond de aarde draaien.
+Maar tegenwoordig zie je ook op bedrijfsterreinen en in woonwijken steeds meer panelen met zonnecellen op de daken.
+In dit practicum onderzoeken jullie hoe de stroom opgewekt door een zonnecel afhangt van de afstand tot een lichtbron en hoe het vermogen geleverd door een zonnecel afhangt van de opgewekte stroom.
+Als extra: hier is een
+\href{https://www.youtube.com/watch?v=xKxrkht7CpY}{\color{blue}TED-filmpje over hoe zonnecellen werken}.
 
 \section{Theorie}
+Het fotovolta\"ische effect doet zich voor wanneer een foton wordt geabsorbeerd door een materiaal dat is samengesteld uit gedoteerde n-type (negatief) en p-type (positief) halfgeleiders, pn-overgang genoemd.
+Als gevolg van de dotering is er in het materiaal een permanent elektrisch veld aanwezig.
+Tijdens de wisselwerking van een invallend foton (lichtdeeltje) met de elektronen van het materiaal, draagt het foton zijn energie over op het elektron dat is vrijgekomen uit zijn valentieband en wordt het dus blootgesteld aan het intrinsieke elektrische veld.
+Onder invloed van dit veld migreert het elektron naar de bovenzijde.
+Het gat dat aldus ontstaat, evolueert in de tegenovergestelde richting.
+Door elektroden te plaatsen op de boven- en onderzijde, kunnen de elektronen worden aangetrokken en kan deze spanningsbron worden aangewend om elektrische stroom op te wekken.
+Dit process is ge\"illustreerd in Fig.~\ref{fig:model}(a).
 
-Het foto-elektrisch effect was eerst waargenomen in 1887 door Heinrich Hertz.
-Hij merkte op dat vonken konden overspringen tussen elektroden en dat dit effect het sterkst was voor ultraviolet licht.
-Vanaf het begin van de $20^e$ eeuw, werd ontdekt dat licht een deeltjeskarakter bezit. Max Planck beschreef black-body radiation (in $1901$) door een holte te beschrijven als een gedempte harmonische oscillator, waaruit bleek dat de totale energie van de oscillator bestond uit discrete energiepakketjes die afhankelijk zijn van de frequentie
-\begin{equation}
-	\label{eq:planck}
-	E=nhf\,,
-\end{equation}
-waar $E$ de energie is, $n\in\mathbb{N}$, $h$ de constante van Planck en $f$ de frequentie van de oscillator.
-Einstein werkte dit idee in $1905$ uit en paste het toe op het foto-elektricsh effect.
-Zijn besluit was dat elektronen alleen kunnen worden vrijgemaakt wanneer de frequentie van het invallende licht groot genoeg is.
-Zo wordt de kinetische energie van de vrije elektron:
-\begin{equation}
-	\label{eq:einstein}
-	E_{max} = hf - W\,,
-\end{equation}
-waarbij $W$ de uittreearbeid is (of ook de werkfunctie) die nodig is om het elektron vrij te maken uit het metaal.
-\begin{info}
-	Denk eens na waarom de kinetische energie in vergelijking \eqref{eq:einstein} maximaal is.
-	Welke processen zouden deze energie kunnen verminderen?
-\end{info}
-Het opmeten van het aantal vrije elektronen die gevormd worden door het foto-elektrisch effect kan nauwkeurig gedaan worden door gebruikt te maken van een fotocel -- een anode en een kathode bedekt met een metaal met kleine uittreedarbeid, zoals Sb-Cs, waaruit door invallend licht elektronen vrijgemaakt worden.
-De werking van de fotocel is afgebeeld in Fig.~\ref{fig:diagram}.
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figuren/energy_diagram.png}
-	\caption{Energie diagram voor elektronen in een fotocel.}
-	\label{fig:diagram}
+\begin{figure}[!hb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figuren/models.png}
+	\caption{Eenvoudig model van een zonnecel en een equivalent circuit. (a) zonnecel (b) model circuit voor een ideale zonnecel. Figuur overgenomen uit \cite{bana}.}
+	\label{fig:model}
 \end{figure}
-Voor een fotocel is de kinetische energie van de vrije elektron gelijk aan
+
+Een ideale zonnecel wordt gekarakteriseerd door een opgewekte stroom $I_{ph}$, die kan afwijken van het ideaal door elektrische of optische verliezen.
+Het meest eenvoudige model voor een ideale zonnecel bestaat uit een foto-eletrische stroombron en een diode~\cite{bellia} en is ge\"illustreerd in Fig.~\ref{fig:model}.
+De stroomsterkte opgewekt door de belichte zonnecel
 \begin{equation}
-	\label{eq:1}
-	W_{kin} = hf - W_C\,,
+	\label{eq:stroom}
+	I = I_{ph} - I_d\,.
 \end{equation}
-met $W_C$ de uittreearbeid van de kathode.
-Aan de hand van de wet van behoud van energie is er een bepaalde rempotentiaal $U_0$ dat ervoor zorgt dat de vrije elektronen net niet de anode bereiken en waardoor de stroom over de fotocel gelijk is aan nul.
-Deze situatie is ook geschetst in Fig.~\ref{fig:diagram}.
-
-De kinetische energie van de elektronen wanneer $U_0$ wordt aangelegd is ook afhankelijk van de onbekende `contact potentiaal' tussen elektrochemische potentialen van de anode en de kathode $U_A - U_C$, zodat $W_{kin}$ kan geschreven worden als
+De stroom van de diode $I_d$ duid de diffusie- en recombinatiestromen in de de pn-junctie en wordt benaderd door de Shockley vergelijking~\cite{bana}
 \begin{equation}
-	\label{eq:2}
-	W_{kin} = e(U_0 + U_A - U_C)\,,
+	\label{eq:shockley}
+	I_d = I_0\left[\exp\left(\frac{eV}{\eta k_B T}\right) - 1\right]\,,
 \end{equation}
-met $e$ de elementaire lading. Vergelijken van formules \eqref{eq:1} en \eqref{eq:2} geeft een lineair verband:
-\begin{equation}
-	\label{eq:linear}
-	U_0 = \frac{h}{e} f - U_A\,,
-\end{equation}
-waaruit de waarde van de constante van Planck kan berekent worden alsook de uittreearbeid van de anode.
+met $I_0$ de saturatiestroom, $V$ de `bias' spanning, $q$ de elementaire lading van de electron ($1.602\times10^{-19}$C), $k_B$ de constante van Boltzmann ($1.381\times10^{-23}$J/K), $T$ de temperatuur van de cel (K) en $\eta$ de idealiteitsfactor.
 
-\begin{info}
-	De uittreearbeid van de kathode komt niet voor in de uiteindelijke formule voor de remspanning.
-Dit komt omdat de elektronen van de Fermi-niveau van de kathode komen en om het oppervlak van de anode te bereiken hebben ze dus al genoeg energie.
-\end{info}
-
-\section{Meetopstelling}
-
-De gebruikte meetopstelling wordt getoond in Fig.~\ref{fig:opstelling}.
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figuren/opstelling.png}
-	\includegraphics[width=0.65\textwidth]{figuren/circuit.png}
-	\caption{Een foto van de gebruikte opstelling (boven) en een schema van de opstelling (onder) met de belangrijkste componenten aangeduid.}
-	\label{fig:opstelling}
+\begin{figure}[!hb]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figuren/iv.jpg}
+	\caption{De karakteristieke IV-curve voor het eenvoudig model van een ideale zonnecel. Figuur overgenomen uit \cite{bana}.}
+	\label{fig:iv}
 \end{figure}
-De opstelling zou reeds juist opgesteld zijn voor het begin van dit practicum, maar het is best om de volgende intellingen van de toestellen na te gaan:
-\begin{itemize}
-	\item De amplifier moet staan in `low drift mode' wat voor betere versterking van een zwak signaal moet zorgen. De amplificatie staat op $10^4$ met tijdsconstante $0.3$.
-	\item Check het nulpunt van de amplifier: zet de multimeter op nul met niets aangesloten op de amplifier.
-	\item Zet de voedingsbron op $3\si{\volt}$ en $1\si{\ampere}$.
-	\item Maak een van de interferentiefilters vast aan de opening van de fotocel en plaats de fotocel direct voor de halogeenlamp. Selecteer de ronde aperture van de lamp met de slider.
-	\item Verander de fotocel bias voltage
-\end{itemize}
-Het veranderen van de `bias voltage' wordt nu gedaan a.h.v. het regelen van de reostaat (regelbare weerstand).
-De spanning over de amplifier is proportioneel met de opgewekte fotostroom.
-Bij $10\si{\kilo\ohm}$ weerstand met een amplificatiefactor $10^4$, komt $1\si{\volt}$ bij de output overeen met een stroom van $10\si{\nano\ampere}$.
 
-\begin{warn}[Let op:]
-	Zet nooit een spanning hoger dan $12\si{\volt}$ op de Halogeenlamp.
-	Dit zou de lamp geheid kapot maken!
-\end{warn}
+De karakteristieke IV-curve dat volgt uit vergelijkingen \eqref{eq:stroom} en \eqref{eq:shockley} stelt alle mogelijke toestanden voor van je apparaat bij bepaalde testomstandigheden (zie Fig.~\ref{fig:iv}).
+Stel, we voegen een weerstand $R$ toe in onze kring.
+Als $R$ heel groot is, wordt de spanning gemeten die de zonnecel levert bij een stroomsterkte die vrijwel nul is.
+Dit is de `open circuit voltage' en wordt aangeduidt met $V_{OC}$.
+Als $R$ heel klein is, wordt de stroomsterke groot maar zakt de spanning tot vrijwel nul.
+We spreken dan over `short circuit current' $I_{SC}$.
+In beide gevallen is het door de zonnecel geleverde vermogen vrijwel nul.
+In het tussenliggende gebied bereikt het vermogen ergens een maximum $P_{max}$.
+Het opmeten van alle andere waarden van de karakteristieke IV-curve kan dus gedaan worden met een regelbare weerstand.
+Specifiek voor de opstelling in dit practicum heb je ook twee multimeters nodig om de stroom en de spanning te meten.
 
 \section{Opdrachten}
 \vspace{-0.5cm}
 \begin{question}
-	Bepaal de remspanning $U_0$ experimenteel voor verschillende lichtfrequenties en intensiteiten.
-	Het opstellen van karakteristieke plots voor de fotocel doe je als volgt:
-	\begin{enumerate}[a)]
-		\item Plot $I$ t.o.v. de `bias voltage' $U$ voor alle kleurenfilters. Neem altijd genoeg datapunten om een mooie plot te verkrijgen!
-		\item Plot $I$ t.o.v. $U$ voor 3+ verschillende afstanden van de lamp en de fotocel. Doe dit voor \'e\'en vaste waarde van $f$.
-		\item Bespreek beide plots en bepaal hieruit de remspanning $U_0$.
+	Bepaal hoe de stroomsterkte $I$ van de zonnecel afhangt van de afstand $r$ tot de lichtbron.
+	De stroom als functie van de afstand $r$, als $r$ niet te klein is, benaderd worden door
+	\begin{equation}
+		\label{eq:invsq}
+		I(r) = \frac{I_a}{1+\frac{r^2}{a^2}}\,,
+	\end{equation}
+	waar $I_a$ en $a$ fitparameters zijn.
+	\begin{enumerate}
+		\item Meet voldoende datapunten voor $I(r)$.
+		\item Maak een fit volgens vergelijking \eqref{eq:invsq}. Denk hierbij aan de geschikte opstelling van een hypothesetest en het bespreken van $\chi^2_{red}$, de p-waarde en de eenheden en fouten op de fitparameters.
 	\end{enumerate}
 \end{question}
 \vspace{-0.8cm}
+\begin{warn}[Let op:]
+	Gebruik de multimeter bij de zonnecellen niet als een ohmmeter omdat de meetstroom de zonnecellen kan beschadigen.
+	Controleer altijd de stand van de draaiknop.
+\end{warn}
+\vspace{-0.8cm}
 \begin{question}
-	Bereken de constante van Planck $h$ aan de hand van de $U_0$--$f$ plot en bepaal ook de uittreearbeid $W_A$ van de anode.
-	De berekende waarde voor $h$ kan sterk verschillen van de gekende waarde ($\pm 20\%$).
+	Meet nu de IV-curve voor verschillende lichtsterkte aan de hand van de techniek van de regelbare weerstand.
+	\begin{enumerate}
+		\item Maak hiervoor een goede keuze voor enkele afstanden van de lichtbron tot de zonnecel (2-3 is genoeg). Fit het model in \eqref{eq:stroom} en \eqref{eq:shockley} aan de data om $I_0$ en $\eta$ zo te bepalen (denk aan een goede waarde voor $T$ die je kan kiezen). Bespreek ook hier je bevindingen met de juiste statistiek.
+		\item Leg kort en bondig uit hoe de gevonden IV-curves veranderen t.o.v. de lichtsterkte.
+		\item Duid ook op je figuur (probeer dit allemaal in \'e\'en figuur samen met de fit te doen) de $V_{OC}$, $I_{SC}$ en $P_{max}$ aan. Bespreek heel kort de gevonden waarden (met eenheden en fout erop uiteraard) in je tekst.
+	\end{enumerate}
 \end{question}
+
+\begin{thebibliography}{9}
+
+\bibitem{bellia}
+	H. Bellia, R. Yousef en M. Fatima,
+	\textit{A detailed modeling of photovoltaic module using MATLAB},
+	NRIAG Journal of Astronomy and Geophysics,
+	(2014), 3, 53-61
+
+\bibitem{bana}
+	S. Bana en R. P. Saini,
+	\textit{A mathematical modeling framework to evaluate the performance of single diode and double diode based SPV systems},
+	Energy Reports,
+	(2016), 2, 171-187.
+
+\end{thebibliography}
 
 \end{document}
 
